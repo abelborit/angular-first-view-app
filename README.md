@@ -16,6 +16,8 @@
 
 - `src\app`: es donde vamos a empezar a construir toda la lógica de nuestra aplicación, crear componentes, servicios, modulos, etc. y tiene los mismos archivos de .html, .css, .ts, .spec.ts o .jest (para el testing), etc. En `app.component.ts` es una clase y tiene un decorador @Component y ahí está difiniendo un 'app-root' el cual es igual al de index.html y básicamente este app.component.ts sería el componente principal que estamos montando ahí. Luego `app.module.ts` es el módulo principal y es un módulo muy importante y hay que tener cuidado porque un cambio que se haga ahí entonces puede afectar a la ejecución de la aplicación o no puede funcionar de la manera correcta. Técnicamente es muy facil que el app.module.ts crezca de manera descomunal pero hay técnicas para que mantener ajustados nuestros archivos para que tengan únicamente lo que necesitamos en ellos.
 
+- `src\app\app.component.ts`: este archivo es el principal, explica cómo funciona el componente, qué dependencias tiene y los demás son como sus complementos para evitar que todo esté en un solo archivo.
+
 - `src\assets\.gitkeep`: es para decir que la carpeta assets (donde están los recursos estáticos) sí le haga seguimiento en git.
 
 ---
