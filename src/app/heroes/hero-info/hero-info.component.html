@@ -1,1 +1,25 @@
-<p>hero-info works!</p>
+<!-- el trabajar con doble llave {{}} es que Angular identifica eso y sabe que la propiedad que le pasemos dentro de las llaves es del archivo .ts al que está bindeado el html, y busca ahí para añadir el valor. En este caso, las llaves y esta característica no es de JavaScript/TypeScript como tal, sino que Angular está hecho así, puedes ver esta característica en su documentación: https://angular.io/guide/interpolation. La interpolación se refiere a incrustar expresiones en texto marcado. De forma predeterminada, la interpolación utiliza llaves dobles {{<valor a utilizar>}} como delimitadores. -->
+
+<h1>{{ name }}</h1>
+
+<!-- El elemento dl especifica una lista de definiciones. Una entrada en la lista se crea utilizando el elemento dt para el término definido y el elemento dd para la definición del término. -->
+<dl>
+  <dt>Nombre:</dt>
+  <dd>{{ name }}</dd>
+
+  <dt>Edad:</dt>
+  <dd>{{ age }}</dd>
+
+  <dt>Método:</dt>
+  <!-- si se coloca directo getHeroDescription sin los paréntesis como si fuera una propiedad entonces se mostrará "getHeroDescription() { return `${this.name} - ${this.age}`; }" lo cual sería tal cual se colocó en el .ts pero si se llama con los paréntesis por ser un método entonces mostrará el resultado que esperamos que sería "ironman - 45" -->
+  <dd>{{ getHeroDescription() }}</dd>
+
+  <dt>Capitalizado:</dt>
+  <dd>{{ capitalizedName }}</dd>
+</dl>
+
+<button class="btn btn-primary mx-2" (click)="changeHeroName()">
+  Cambiar nombre
+</button>
+
+<button class="btn btn-primary" (click)="changeHeroAge()">Cambiar edad</button>
