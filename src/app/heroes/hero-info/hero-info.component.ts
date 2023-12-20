@@ -25,6 +25,15 @@ export class HeroInfoComponent {
   changeHeroAge(): void {
     this.age = 25;
   }
+  resetHero(): void {
+    this.name = 'ironman';
+    this.age = 45;
+
+    /* no se debería trabajar de esta forma porque se estaría manipulando desde afuera de esta clase y hasta donde se pueda es mejor trabajar con el one way data binding y no el two way data binding, es decir, trabajar todo de forma interna partiendo desde la clase */
+    // document.querySelectorAll('h1')!.forEach((element) => {
+    //   element.innerHTML = '<h1>Seleccionando el h1</h1>';
+    // });
+  }
 
   /* Los getters y setters no son más que una forma de proporcionar acceso a las propiedades de un objeto. */
   /* getters son como propiedades pero que en realidad vendrían a ser métodos, entonces estos se invocan sin parentesis ya que son tratados como "propiedades" entre comillas */
