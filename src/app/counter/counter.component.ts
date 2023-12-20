@@ -11,12 +11,22 @@ interface OperationsInterface {
   template: `
     <h3>Counter: {{ counter }}</h3>
     <!-- (click)="calculate()" se podría colocar el this.calculate() porque tecnicamente funcionaría pero en el lado del HTML sería como redundante hacerlo porque ya sabe que está haciendo referencia al archivo de TypeScript (.ts) y es raro ver ese this. -->
-    <button (click)="calculate('increment', 2)">+2</button>
-    <button (click)="calculate('increment', 1)">+1</button>
-    <button (click)="resetCounter()">Reset</button>
-    <button (click)="calculate('decrement', 1)">-1</button>
-    <button (click)="calculate('decrement', 2)">-2</button>
-    <button (click)="calculate('decrementar', 4)">-4</button>
+    <button class="btn btn-primary mx-1" (click)="calculate('increment', 2)">
+      +2
+    </button>
+    <button class="btn btn-primary mx-1" (click)="calculate('increment', 1)">
+      +1
+    </button>
+    <button class="btn btn-primary mx-1" (click)="resetCounter()">Reset</button>
+    <button class="btn btn-primary mx-1" (click)="calculate('decrement', 1)">
+      -1
+    </button>
+    <button class="btn btn-primary mx-1" (click)="calculate('decrement', 2)">
+      -2
+    </button>
+    <button class="btn btn-primary mx-1" (click)="calculate('decrementar', 4)">
+      -4
+    </button>
   `,
   // templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'], // es en array porque se pueden colocar varios estilos
