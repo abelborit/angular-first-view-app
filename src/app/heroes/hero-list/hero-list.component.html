@@ -1,1 +1,58 @@
-<p>hero-list works!</p>
+<h3>Heroes List</h3>
+
+<!-- ************************************************************************************************************** -->
+<!-- FORMA 1 COLOCANDO DOS VALIDACIONES: pero no sería lo óptimo ya que javascript estarían evaluando la condición dos veces y el ciclo de detección de cambios de Angular también estaría evaluando dos veces tanto para el primer h5 como para el segundo h5 porque ambos tienen una condición -->
+<!-- <div *ngIf="deletedHero">
+  <h5>
+    Removed Hero <small class="text-danger">{{ deletedHero }}</small>
+  </h5>
+</div>
+<h5 *ngIf="!deletedHero">No heroes have been removed yet...</h5> -->
+<!-- ************************************************************************************************************** -->
+
+<!-- ************************************************************************************************************** -->
+<!-- FORMA 2: USANDO DIRECTIVA ngIf-else -->
+<!-- el ng-template></ng-template> es como un div que no existe en el árbol de componentes, sería como un fragment o un <>..</> en React pero en este caso ni si quisiera se va a construir a menos que nosotros le digamos cuándo o cómo lo hará -->
+<!-- se colocará un nombre para que haga referencia a ese ng-template, entonces quiere decir que si no se cumple deletedHero entonces mostrará lo que tenga dentro el ng-template -->
+<div *ngIf="deletedHero && heroNames.length > 0; else noRemovedHero">
+  <h5>
+    Removed Hero <small class="text-danger">{{ deletedHero }}</small>
+  </h5>
+</div>
+<!-- se coloca la referencia a este ng-template usando #NombreDeLaReferencia y eso es conocido en Angular como una referencia local -->
+<ng-template #noRemovedHero>
+  <h5 *ngIf="heroNames.length > 0">No heroes have been removed yet...</h5>
+  <h5 *ngIf="heroNames.length == 0">
+    There are no heroes to remove because the last hero removed was
+    <small class="text-danger">{{ deletedHero }}</small>
+  </h5>
+</ng-template>
+<!-- ************************************************************************************************************** -->
+
+<button
+  *ngIf="heroNames.length > 0"
+  class="btn btn-outline-danger mx-2"
+  (click)="removeFirstHero()"
+>
+  Remove first Hero
+</button>
+
+<button
+  *ngIf="heroNames.length > 0"
+  class="btn btn-outline-danger"
+  (click)="removeLastHero()"
+>
+  Remove last Hero
+</button>
+
+<ul class="mt-2 list-group">
+  <!-- directiva ngFor para crear como un template HTML para iterar elementos según la cantidad de elementos que tenga el ciclo for -->
+  <li *ngFor="let name of heroNames" class="list-group-item">
+    {{ name }}
+  </li>
+
+  <!-- <li class="list-group-item">Spiderman</li>
+  <li class="list-group-item">Ironman</li>
+  <li class="list-group-item">Thor</li>
+  <li class="list-group-item">Hulk</li> -->
+</ul>
