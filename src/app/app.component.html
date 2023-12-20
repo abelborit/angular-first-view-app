@@ -1,17 +1,6 @@
 <h1>{{ title }} {{ name }}</h1>
 <hr />
 
-<h3>Counter: {{ counter }}</h3>
-
-<!-- (click)="calculate()" se podría colocar el this.calculate() porque tecnicamente funcionaría pero en el lado del HTML sería como redundante hacerlo porque ya sabe que está haciendo referencia al archivo de TypeScript (.ts) y es raro ver ese this. -->
-<button (click)="calculate('increment', 2)">+2</button>
-<button (click)="calculate('increment', 1)">+1</button>
-<button (click)="resetCounter()">Reset</button>
-<button (click)="calculate('decrement', 1)">-1</button>
-<button (click)="calculate('decrement', 2)">-2</button>
-<button (click)="calculate('decrementar', 4)">-4</button>
-
-<hr />
 <!-- al querer usarlo de esta forma directa solo con el counter.component.ts sin un módulo entonces no funcionará y nos dará un error ya que nos dice que tiene que se parte de un módulo. Entonces al crear un componente en Angular lo tenemos que definir en algún lugar, técnicamente ya no es una regla en Angular ya que cambió desde Angular 15 que introdujeron los standalone components. Pero por ahora, en pocas palabras nos dice que el componente de counter necesita ser parte de un módulo pero hasta ahora solo tenemos un módulo en nuestra aplicación que es app.module.ts y ahí entonces se tendría que declarar el componente que quiero usar en este módulo que sería el CounterComponent y ahí se haría la importación de esa clase a utilizar y con eso ya se mostraría en pantalla -->
 <!-- el error que aparece si no se coloca en un módulo:
   'app-counter' is not a known element:
@@ -21,3 +10,6 @@
   app.component.ts(6, 240): Error occurs in the template of component AppComponent.
 -->
 <app-counter></app-counter>
+<hr />
+<!-- se puede trabajar con más elemetos iguales y cada uno mantendrá su estado y no tendrán conflictos ya que son componentes totalmente independientes y sus valores no están enlazados de ninguna manera por eso mantiene su propio estado -->
+<!-- <app-counter></app-counter> -->

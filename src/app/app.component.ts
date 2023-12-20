@@ -1,10 +1,6 @@
 /* este archivo es el corazón y el archivo principal del componente */
 import { Component } from '@angular/core';
 
-interface OperationsInterface {
-  [calcType: string]: () => void;
-}
-
 /* @Component es un decorador para transformar mi clase en un componente */
 @Component({
   selector: 'app-root',
@@ -17,33 +13,7 @@ export class AppComponent {
   /* forma corta de TypeScript para definir propiedades */
   // title = 'angular-first-view-app';
 
-  /* forma para mejorar la legibilidad del código aunque hacer así o como arriba es lo mismo */
+  /* forma para mejorar la legibilidad del código aunque hacerlo así o como arriba es lo mismo solo que de esta forma da un poco más de información como el tipo y el nivel de acceso */
   public title: string = 'Mi primera App de';
   public name: string = 'Angular';
-  public counter: number = 10;
-
-  /* para los métodos no es tan usual verlo con public, si es usual ver private o static pero public no es tan usual ya que por defecto es public */
-  calculate(calcType: string, value: number): void {
-    const operations: OperationsInterface = {
-      increment: () => {
-        // this.counter = this.counter + 1;
-        this.counter += value;
-      },
-      decrement: () => {
-        if (this.counter !== 0) this.counter -= value;
-      },
-    };
-
-    const operation = operations[calcType];
-
-    if (operation) {
-      operation();
-    } else {
-      console.error('Invalid type:', calcType);
-    }
-  }
-
-  resetCounter(): void {
-    this.counter = 10;
-  }
 }
