@@ -9,29 +9,28 @@ import { DbzCharacterInterface } from '../../interfaces/characters.interface';
 export class FormCharactersComponent {
   /* este ejercicio se hará usando el two way data binding (que se pueda cambiar el valor de la propiedad desde este archivo ts y también si se cambia desde el html se vea reflejado aquí) que no sería lo recomendado ya que puede causar efectos indeseados o inconsistencias ya que al estar pendiente de ambos lugares entonces para manejo de formularios se recomienda no hacerlo ya que puede causar efectos indeseados */
 
-  /* el EventEmitter es bien flexible por ser un genérico, puede emitir string, number, objetos, arreglos, etc... pero en nuestro caso queremos emitir algo que será de tipo DbzCharacterInterface y con todo lo de abajo creamos nuestra instancia de este emisor de eventos o EventEmitter. Se puede colocar public para mentener la misma sintaxis y que todo luzca igual. Ahora faltaría decorar esta propiedad con el @Output para poder conectarme del main-page.component.html para que esté escuchando este onNewCharacter y funcione todo de la manera correcta y ahora ya se puede emitir este onNewCharacter y usarlo como en este caso en el addCharacter() */
-  @Output()
-  public onNewCharacter: EventEmitter<DbzCharacterInterface> = new EventEmitter()
-
+  /* propiedad con un estado inicial y pares llave/valor del input */
   public character: DbzCharacterInterface = {
     name: "",
     power: 0
   };
+
+  /* el EventEmitter es bien flexible por ser un genérico, puede emitir string, number, objetos, arreglos, etc... pero en nuestro caso queremos emitir algo que será de tipo DbzCharacterInterface y con todo lo de abajo creamos nuestra instancia de este emisor de eventos o EventEmitter. Se puede colocar public para mentener la misma sintaxis y que todo luzca igual. Ahora faltaría decorar esta propiedad con el @Output para poder conectarme del main-page.component.html para que esté escuchando este onNewCharacter y funcione todo de la manera correcta y ahora ya se puede emitir este onNewCharacter y usarlo como en este caso en el addCharacter() para emitir el personaje que se creó al componente padre main-page.component.ts y poder tomar el valor en el onNewCharacterFunction */
+  @Output()
+  public onNewCharacter: EventEmitter<DbzCharacterInterface> = new EventEmitter()
 
   addCharacter(): void {
     console.log(this.character);
 
     if (this.character.name.trim().length === 0) return;
 
+    /* emitir el valor actual que tiene el objeto character (serían los valores del input en el momento actual al enviar el submit del formulario) */
     this.onNewCharacter.emit(this.character);
     /* como javascript pasa por referencia entonces se puede crear un nuevo objeto y hacer el spread-operator y mandar las propiedades en un nuevo objeto aunque Angular también se va a encargar de eso por nosotros */
     // this.onNewCharacter.emit({ ...this.character });
 
-
     this.character.name = "";
     this.character.power = 0;
-
-
   }
 }
 

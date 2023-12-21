@@ -13,7 +13,7 @@
   </div>
 
   <div class="col">
-    <!-- aquí se quiere escuchar el evento cuando mi formulario emita un nuevo personaje (cuando agrege un nuevo personaje) y como es un evento entonces va entre paréntesis (). Se sabe que el componente hijo ya está emitiendo el objeto en this.onNewCharacter.emit(this.character); y para recibirlo aquí se usa el $event que es un nombre específico de Angular para que el valor que está emitiendo el onNewCharacter lo voy a recibir en onNewCharacterFunction() -->
+    <!-- aquí se quiere escuchar un evento cuando mi formulario emita un nuevo personaje (cuando agrege un nuevo personaje) y como es un evento entonces va entre paréntesis () y el evento será onNewCharacter. Se sabe que el componente hijo ya está emitiendo el objeto en 'this.onNewCharacter.emit(this.character);' y para recibirlo en el componente padre se usa el '$event' que es un nombre específico de Angular para que el valor que está emitiendo el onNewCharacter lo voy a recibir en onNewCharacterFunction(), es decir, para pasar la información del componente hijo al componente padre -->
     <app-dbz-components-form-characters
       (onNewCharacter)="onNewCharacterFunction($event)"
     ></app-dbz-components-form-characters>
