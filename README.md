@@ -1,4 +1,38 @@
-# Partes y/o archivos de este proyecto (https://angular.io/guide/file-structure)
+# Angular & TypeScript - Angular First View App
+
+---
+
+# Temas puntuales de la sección
+
+### ¿Qué veremos en esta sección?
+
+Esta es una sección de iniciación donde estaremos viendo temas básicos y temas puntuales de Angular que nos servirán para poder aprender esta tecnología. Aquí veremos:
+
+    - Crear proyectos de Angular
+    - Uso del AngularCLI - Angular Command Line Interface
+    - Explicar cada archivo y directorio de un proyecto
+    - Introducción al file system
+    - One way data binding
+    - Componentes
+    - Módulos
+    - Directivas creadas por Angular
+    - ngIf y ngIf-else
+
+### \* PASOS A REALIZAR:
+
+1. ejemplo
+2. ejemplo
+3. ejemplo
+
+### \* RECURSOS A USAR:
+
+- ejemplo
+- ejemplo
+- ejemplo
+
+---
+
+### \* Partes y/o archivos de este proyecto (https://angular.io/guide/file-structure)
 
 - `.editorconfig`: al instalar la extensión `EditorConfig for VS Code` nos permite sobreescribir valores por defecto de nuestro editor de código, entonces lo que Visual Studio Code hace cuando encuentra un archivo .editorconfig básicamente establece las configuraciones por defecto en Visual Studio Code para este proyecto y este archivo hace que siga ciertas recomendaciones para que nuestro código luzca igual o similar cuando otras personas están trabajando en el mismo editor de código. Entonces `.editorconfig` es una configuración del editor de código. EditorConfig ayuda a mantener estilos de codificación consistentes para múltiples desarrolladores que trabajan en el mismo proyecto en varios editores e IDE. El proyecto EditorConfig consta de un formato de archivo para definir estilos de codificación y una colección de complementos de editor de texto que permiten a los editores leer el formato de archivo y adherirse a los estilos definidos. Los archivos EditorConfig son fácilmente legibles y funcionan bien con sistemas de control de versiones.
 
