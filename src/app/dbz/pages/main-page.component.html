@@ -1,0 +1,21 @@
+<h1>
+  💥Dragon Ball Z
+  <small style="font-size: 20px">(Main Page Characters)</small>💥
+</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- aquí se está haciendo la comunicación entre componentes, desde el componente padre (dbzCharacters) al componente hijo (dbzCharactersList) -->
+    <app-dbz-components-list-characters
+      [dbzCharactersList]="dbzCharacters"
+    ></app-dbz-components-list-characters>
+  </div>
+
+  <div class="col">
+    <!-- aquí se quiere escuchar el evento cuando mi formulario emita un nuevo personaje (cuando agrege un nuevo personaje) y como es un evento entonces va entre paréntesis (). Se sabe que el componente hijo ya está emitiendo el objeto en this.onNewCharacter.emit(this.character); y para recibirlo aquí se usa el $event que es un nombre específico de Angular para que el valor que está emitiendo el onNewCharacter lo voy a recibir en onNewCharacterFunction() -->
+    <app-dbz-components-form-characters
+      (onNewCharacter)="onNewCharacterFunction($event)"
+    ></app-dbz-components-form-characters>
+  </div>
+</div>

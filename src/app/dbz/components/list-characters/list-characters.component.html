@@ -1,0 +1,30 @@
+<h4>Character List</h4>
+<ul class="list-group">
+  <!--
+    let isFirst = first; -> saber si es el primer elemento
+    let isLast = last; -> saber si es el último elemento
+    let isEven = even; -> saber si la posición del elemento es par
+    let isOdd = odd -> saber si la posición del elemento es impar
+  -->
+
+  <!-- para colocar condicionales en las clases css se podría hacer algo así class="list-group-item {{ i == 0 ? 'list-group-item-success' : '' }}" o colocarlo como propiedad [class]:"'código javascript'" pero ahí ya vemos que se está añadiendo mucha lógica y código a nuestro HTML y para evitarlo se usará otra directiva de Angular que es el [ngClass] y sirve para enlazar clases de css basado en un objeto o expresión, es decir, es una directiva que te permite agregar o remover clases de elementos HTML más cómodamente de manera dinámica en función de condiciones o valores de variables en tu componente y de esta forma [ngClass]="{ 'list-group-item-success': isFirst }" logramos que si es el primer elemento entonces tenga una clase css determinada, también se puede ir colocando otras expresiones como está abajo de que el primer elemento tenga una clase css y el último elemento tenga otra clase css y así sucesivamente -->
+  <li
+    *ngFor="
+      let character of dbzCharactersList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even;
+      let isOdd = odd
+    "
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-success': isFirst,
+      'list-group-item-warning': isLast
+    }"
+  >
+    <span class="text-primary">{{ i + 1 }}. </span>
+    <strong>Name:</strong> {{ character.name }} -/- <strong>Power:</strong>
+    {{ character.power }}
+  </li>
+</ul>
