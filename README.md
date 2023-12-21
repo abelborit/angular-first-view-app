@@ -6,17 +6,28 @@
 
 ### ¿Qué veremos en esta sección?
 
-Esta es una sección de iniciación donde estaremos viendo temas básicos y temas puntuales de Angular que nos servirán para poder aprender esta tecnología. Aquí veremos:
+- Esta es una sección de iniciación donde estaremos viendo temas básicos y temas puntuales de Angular que nos servirán para poder aprender esta tecnología. Aquí veremos:
 
-    - Crear proyectos de Angular
-    - Uso del AngularCLI - Angular Command Line Interface
-    - Explicar cada archivo y directorio de un proyecto
-    - Introducción al file system
-    - One way data binding
-    - Componentes
-    - Módulos
-    - Directivas creadas por Angular
-    - ngIf y ngIf-else
+  - Crear proyectos de Angular
+  - Uso del AngularCLI - Angular Command Line Interface
+  - Explicar cada archivo y directorio de un proyecto
+  - Introducción al file system
+  - One way data binding
+  - Componentes
+  - Módulos
+  - Directivas creadas por Angular
+  - ngIf y ngIf-else
+
+* Una vez sentadas las bases de Angular en la sección anterior, vamos a seguir expandiéndolas con los siguientes temas:
+
+  - Profundizar un poco más en los módulos
+  - FormsModule
+  - ngModel
+  - @Inputs
+  - @outputs
+  - Servicios
+  - Métodos en servicios
+  - Depuraciones
 
 ### \* PASOS A REALIZAR:
 
@@ -29,6 +40,10 @@ Esta es una sección de iniciación donde estaremos viendo temas básicos y tema
 - ejemplo
 - ejemplo
 - ejemplo
+
+### \* NOTAS:
+
+- Al crear un nuevo módulo vemos que puede usar la dependencia de `import { CommonModule } from '@angular/common';` y hay otros módulos que también lo pueden usar entonces la primera vez que Angular carga ese 'CommonModule' ya lo almacena en memoria y eso hace que al usar otro módulo con esa dependencia de 'CommonModule' Angular ya no lo vuelva a cargar porque ya lo tiene en memoria y reutiliza el mismo 'CommonModule' almacenado en memoria y eso es algo que ayuda a que la velocidad de Angular sea bastante buena entonces se puede tener importada la dependencia de `import { CommonModule } from '@angular/common';` en varios lugares y eso no afectaría el rendimiento.
 
 ---
 
