@@ -20,17 +20,27 @@ export class FormCharactersComponent {
   public onNewCharacter: EventEmitter<DbzCharacterInterface> = new EventEmitter()
 
   addCharacter(): void {
-    console.log(this.character);
+    /* se puede utilizar para debugear la aplicación o sino también colocar break points en el visual studio code en el código donde queremos que pare la aplicación */
+    // debugger;
 
-    if (this.character.name.trim().length === 0) return;
+    if (this.character.name.trim().length === 0 || this.character.power === 0) {
+      console.log("el nombre no puede iniciar con espacios en blanco y el power no puede ser 0 ❌");
+      return
+    };
+    // console.log(this.character);
 
     /* emitir el valor actual que tiene el objeto character (serían los valores del input en el momento actual al enviar el submit del formulario) */
-    this.onNewCharacter.emit(this.character);
+    this.onNewCharacter.emit({
+      name: this.character.name.trim(),
+      power: this.character.power
+    });
     /* como javascript pasa por referencia entonces se puede crear un nuevo objeto y hacer el spread-operator y mandar las propiedades en un nuevo objeto aunque Angular también se va a encargar de eso por nosotros */
     // this.onNewCharacter.emit({ ...this.character });
 
-    this.character.name = "";
-    this.character.power = 0;
+    /* La diferencia es que con this.character = { name: "", power: 0 }; estamos asignándole un nuevo objeto a nuestra propiedad this.character, y por ende una nueva referencia en memoria y con this.character.name = ""; únicamente estamos modificando la propiedad name del objeto del mismo espacio en memoria. Modificar una propiedad de un objeto NO cambia el identificador de la variable (su referencia en memoria), pero si asignamos un nuevo objeto sí la cambiará. Si se está trabajando con formularios y se desea restablecer el formulario a sus valores iniciales, asignar un nuevo objeto puede ser una opción más limpia y segura, ya que garantiza que no haya referencias antiguas que apunten al objeto modificado. */
+    // this.character.name = "";
+    // this.character.power = 0;
+    this.character = { name: "", power: 0 };
   }
 }
 

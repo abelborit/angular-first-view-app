@@ -2,10 +2,14 @@
 
 <!-- el ngSubmit es un evento especial de Angular para que ayude con la propagación del formulario con su información (La propagación del formulario hace referencia a la forma en la que los datos se transmiten de un componente padre a uno o más componente hijo.), para evitar que se recargue el navegador web aunque eso ya viene incluido en el FormsModule, etc.... -->
 <form class="row" (ngSubmit)="addCharacter()">
-  <!-- se podría trabajar apuntando a una propiedad/atributo como por ejemplo [value]:"código javascript" pero se estará trabajando con otra directiva de Angular que es el ngModel. Hay también una sintaxis especial que se le llama "caja de bananas" porque es [()] donde los corchetes simbolizan una caja y los paréntesis unas bananas, y como se sabe al colocar entre paréntesis () es la asignación o asociar un evento y si es [] es para asociar una propiedad/atributo entonces colocarlos juntos [()] significa que se le está asignando un evento y un atributo a la vez y eso sería aplicar el two way data binding, y entonces al colocar [(ngModel)]="binding" donde el binding será nuestro character.name y de esta manera nuestro input cuando cambie va a actualizar la referencia de la propiedad character de la class FormCharactersComponent. El uso de [(ngModel)] en Angular es similar al manejo de eventos de onChange en React para gestionar la entrada de datos en un campo de formulario. Ambos enfoques permiten una actualización bidireccional de los datos del input y mantienen sincronizados los valores del formulario con el estado de la aplicación. En Angular, [(ngModel)] es una directiva que simplifica la vinculación de datos entre el formulario y el componente, mientras que en React, debes gestionar la lógica de actualización manualmente utilizando el evento onChange. En esencia, ambas soluciones logran el mismo objetivo, mantener actualizados los datos del input y el estado del componente. -->
+  <!-- se podría trabajar apuntando a una propiedad/atributo como por ejemplo [value]:"código javascript" como [value]="character.name || 'this is the input value'" o sino también con doble llaves como value="{{ character.name || 'this is the input value' }}" donde usualmente las doble llaves las usamos cuando queremos mostrar algo en el HTML (normalmente texto o algún objeto) y los [] los usamos en las propiedades para indicar que lo que viene no es solo texto sino que es algo de typescript o javascript pero en este ejemplo se trabajará con otra directiva de Angular que es el ngModel -->
+
+  <!-- en Angular hay una sintaxis especial que se le llama "caja de bananas" porque es [()] donde los corchetes simbolizan una caja y los paréntesis unas bananas, y como se sabe al colocar entre paréntesis () es la asignación o asociar un evento y si es [] es para asociar una propiedad/atributo entonces colocarlos juntos [()] significa que se le está asignando un evento y un atributo a la vez y eso sería aplicar el two way data binding ya que se está emitiendo un evento y también hay que escuchar el evento, es decir, al momento de que se tipea algo en el formulario automáticamente se está emitiendo un evento, y para obtener el valor de lo que se escribió en el formulario se tiene que escuchar ese evento (Cuando dice emitir y escuchar el evento a la vez, quiere decir que al momento en que tu escribas en la caja de texto este valor que se está emitiendo se almacenará en nuevo.nombre y este a su vez escuchará ese evento para que se muestre en la caja de texto el valor de nuevo.nombre. Cómo puedes observar, los eventos se están trabajando en base a nuevo.nombre) -->
+  <!-- entonces al colocar [(ngModel)]="binding" donde el binding será nuestro character.name y de esta manera nuestro input cuando cambie va a actualizar la referencia de la propiedad character de la class FormCharactersComponent. El uso de [(ngModel)] en Angular es similar al manejo de eventos de onChange en React para gestionar la entrada de datos en un campo de formulario. Ambos enfoques permiten una actualización bidireccional de los datos del input y mantienen sincronizados los valores del formulario con el estado de la aplicación. En Angular, [(ngModel)] es una directiva que simplifica la vinculación de datos entre el formulario y el componente, mientras que en React, debes gestionar la lógica de actualización manualmente utilizando el evento onChange. En esencia, ambas soluciones logran el mismo objetivo, mantener actualizados los datos del input y el estado del componente. -->
   <!-- <input
     type="text"
     [value]="character.name || 'this is the input value'"
+    value="{{ character.name || 'this is the input value' }}"
     class="form-control mb-2"
     placeholder="Character name..."
   /> -->
@@ -19,7 +23,6 @@
       Example 2: <input [(ngModel)]="person.firstName" [ngModelOptions]="{standalone: true}">
   -->
   <!-- donde Angular nos da una advertencia de que tenemos que definir que el input es parte de un formulario y para eso se colocará el atributo name="" típico de todos los inputs pero si queremos que este input se mantenga de forma aislada y sola entonces solo colocaríamos [ngModelOptions]="{standalone: true}" y ya colocando una u otra opción entonces ya desaparece ese warning en la consola -->
-
   <input
     type="text"
     [(ngModel)]="character.name"
@@ -41,5 +44,5 @@
   <button type="submit" class="btn btn-primary">Add</button>
 
   <!-- colocando lo de abajo es como colocar en la consola del navegador por ejemplo un 'const obj = {a: 1, b: 2}' y luego 'obj.toString()' y devuelve una representación de '[object Object]' y quiere decir que está tomando el objeto character y le está colocando su representación con .toString() pero para ver el objeto y sus propiedades se usará un pipe o caracter de tubería que es una | seguido de json y con ese pipe json o | json construye mi objeto como se quiere ver que sería {a: 1, b: 2} por ejemplo -->
-  <pre>{{ character | json }}</pre>
+  <!-- <pre>{{ character | json }}</pre> -->
 </form>
