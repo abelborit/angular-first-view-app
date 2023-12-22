@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DbzCharacterInterface } from '../../interfaces/characters.interface';
 
 @Component({
@@ -16,4 +16,15 @@ export class ListCharactersComponent {
       power: 50
     },
   ]
+
+  /* emitir el índice del personaje a eliminar desde el componente hijo al componente padre */
+  @Output()
+  public handleDeleteCharacterEmitter: EventEmitter<number> = new EventEmitter()
+  /* también se podría colocar de esta forma pero es más explícita la línea de arriba */
+  // public handleDeleteCharacterEmitter = new EventEmitter<number>()
+
+  handleDeleteCharacter(indexElement: number): void {
+    // console.log(indexElement);
+    this.handleDeleteCharacterEmitter.emit(indexElement)
+  }
 }

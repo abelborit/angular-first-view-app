@@ -11,20 +11,32 @@
   <li
     *ngFor="
       let character of dbzCharactersList;
-      let i = index;
+      let indexElement = index;
       let isFirst = first;
       let isLast = last;
       let isEven = even;
       let isOdd = odd
     "
-    class="list-group-item"
+    class="list-group-item d-flex justify-content-between align-items-center"
     [ngClass]="{
       'list-group-item-success': isFirst,
       'list-group-item-warning': isLast
     }"
   >
-    <span class="text-primary">{{ i + 1 }}. </span>
-    <strong>Name:</strong> {{ character.name }} -/- <strong>Power:</strong>
-    {{ character.power }}
+    <div>
+      <span class="text-primary">{{ indexElement + 1 }}. </span>
+      <strong>Name: </strong>
+      <span>{{ character.name }}</span>
+      <span> -/- </span>
+      <strong>Power: </strong>
+      <span>{{ character.power }}</span>
+    </div>
+
+    <button
+      class="btn btn-danger"
+      (click)="handleDeleteCharacter(indexElement)"
+    >
+      X
+    </button>
   </li>
 </ul>

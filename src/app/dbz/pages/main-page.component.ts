@@ -22,8 +22,16 @@ export class MainPageComponent {
   ]
 
   onNewCharacterFunction(character: DbzCharacterInterface): void {
-    console.log("Main Page");
-    console.log(character);
+    // console.log("Main Page");
+    // console.log(character);
+    this.dbzCharacters.push(character);
+  }
 
+  onDeleteCharacterFunction(indexElement: number): void {
+    // console.log("Main Page");
+    // console.log(indexElement);
+
+    /* eliminar el elemento desde el índice que se pasó un elemento a la derecha, quiere decir que el elemento con el indexElement se eliminará */
+    this.dbzCharacters.splice(indexElement, 1);
   }
 }
