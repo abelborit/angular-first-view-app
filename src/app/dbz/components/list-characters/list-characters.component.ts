@@ -18,13 +18,23 @@ export class ListCharactersComponent {
   ]
 
   /* emitir el índice del personaje a eliminar desde el componente hijo al componente padre */
-  @Output()
-  public handleDeleteCharacterEmitter: EventEmitter<number> = new EventEmitter()
+  // @Output()
+  // public handleDeleteCharacterEmitter: EventEmitter<number> = new EventEmitter()
   /* también se podría colocar de esta forma pero es más explícita la línea de arriba */
   // public handleDeleteCharacterEmitter = new EventEmitter<number>()
 
-  handleDeleteCharacter(indexElement: number): void {
-    // console.log(indexElement);
-    this.handleDeleteCharacterEmitter.emit(indexElement)
+  // handleDeleteCharacter(indexElement: number): void {
+  //   // console.log(indexElement);
+  //   this.handleDeleteCharacterEmitter.emit(indexElement)
+  // }
+
+  /* emitir el índice del personaje a eliminar desde el componente hijo al componente padre */
+  @Output()
+  public handleDeleteCharacterEmitter: EventEmitter<string> = new EventEmitter()
+
+  handleDeleteCharacterById(idElement?: string): void {
+    if (!idElement) return;
+
+    this.handleDeleteCharacterEmitter.emit(idElement)
   }
 }

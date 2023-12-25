@@ -8,15 +8,15 @@
   <div class="col">
     <!-- aquí se está haciendo la comunicación entre componentes, desde el componente padre (dbzCharacters) al componente hijo (dbzCharactersList) -->
     <app-dbz-components-list-characters
-      [dbzCharactersList]="dbzCharacters"
-      (handleDeleteCharacterEmitter)="onDeleteCharacterFunction($event)"
+      [dbzCharactersList]="charactersList"
+      (handleDeleteCharacterEmitter)="onDeleteCharacterById($event)"
     ></app-dbz-components-list-characters>
   </div>
 
   <div class="col">
     <!-- aquí se quiere escuchar un evento cuando mi formulario emita un nuevo personaje (cuando agrege un nuevo personaje) y como es un evento entonces va entre paréntesis () y el evento será onNewCharacter. Se sabe que el componente hijo ya está emitiendo el objeto en 'this.onNewCharacter.emit(this.character);' y para recibirlo en el componente padre se usa el '$event' que es un nombre específico de Angular para que el valor que está emitiendo el onNewCharacter lo voy a recibir en onNewCharacterFunction(), es decir, para pasar la información del componente hijo al componente padre, sería algo similar a hacer un 'propName = {() => handleFunction(value)}' en React pero en Angular el evento que se emite que es onNewCharacter pero entre () por ser un evento ya tiene el valor que recibirá el que escucha el evento que es onNewCharacterFunction  -->
     <app-dbz-components-form-characters
-      (onNewCharacter)="onNewCharacterFunction($event)"
+      (onNewCharacter)="onNewCharacter($event)"
     ></app-dbz-components-form-characters>
   </div>
 </div>

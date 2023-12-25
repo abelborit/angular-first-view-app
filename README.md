@@ -29,17 +29,11 @@
   - Métodos en servicios
   - Depuraciones
 
-### \* PASOS A REALIZAR:
-
-1. ejemplo
-2. ejemplo
-3. ejemplo
-
 ### \* RECURSOS A USAR:
 
-- ejemplo
-- ejemplo
-- ejemplo
+- uuid: https://www.npmjs.com/package/uuid
+  - `npm i uuid`
+  - `npm i --save-dev @types/uuid`
 
 ### \* NOTAS:
 
