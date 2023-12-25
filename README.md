@@ -29,6 +29,16 @@
   - Métodos en servicios
   - Depuraciones
 
+* Ahora veremos temas de despliegue de aplicaciones en Angular. Aquí aprenderemos como generar el build de producción de nuestra aplicación y la desplegaremos en la web. El proceso de despliegue en otros servidores es virtualmente el mismo, tomar nuestra carpeta DIST (que contiene la aplicación con archivos HTML, CSS y JS) y desplegarla mediante FTP (preferiblemente sFTP) en el hosting deseado.
+
+  FTP: es un protocolo de subida y bajada de archivos entre tu ordenador y un servidor. Este protocolo te permitirá subir o descargar archivos que estén en tu hosting y viceversa. Es un protocolo que se utiliza para transferir todo tipo de archivos entre equipos conectados a una red, por ejemplo Internet. Las cuentas de FTP son el medio estándar para gestionar el contenido alojado en un servidor web: enviar archivos, descargarlos, crear directorios, borrar ficheros, etc.
+
+  - Generar build de producción
+  - Desplegarlo rápidamente
+  - Netlify
+  - GitHub Pages (se copió el folder dist/angular-first-view-app y se cambió el nombre a docs)
+  - npm Scripts para automatizar el proceso
+
 ### \* RECURSOS A USAR:
 
 - uuid: https://www.npmjs.com/package/uuid
