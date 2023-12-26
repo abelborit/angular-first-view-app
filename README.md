@@ -44,10 +44,16 @@
 - uuid: https://www.npmjs.com/package/uuid
   - `npm i uuid`
   - `npm i --save-dev @types/uuid`
+- del-cli: https://www.npmjs.com/package/del-cli
+  - `npm i del-cli`
+- copyfiles: https://www.npmjs.com/package/copyfiles
+  - `npm i copyfiles`
 
 ### \* NOTAS:
 
 - Al crear un nuevo módulo vemos que puede usar la dependencia de `import { CommonModule } from '@angular/common';` y hay otros módulos que también lo pueden usar entonces la primera vez que Angular carga ese 'CommonModule' ya lo almacena en memoria y eso hace que al usar otro módulo con esa dependencia de 'CommonModule' Angular ya no lo vuelva a cargar porque ya lo tiene en memoria y reutiliza el mismo 'CommonModule' almacenado en memoria y eso es algo que ayuda a que la velocidad de Angular sea bastante buena entonces se puede tener importada la dependencia de `import { CommonModule } from '@angular/common';` en varios lugares y eso no afectaría el rendimiento.
+
+- Se añadirán algunos scrips en el package.json para que al hacer el build se cree la carpeta docs y también que en el index.html del buils en el <base href="/" /> se coloque así <base href="./" /> para no tener problemas con los archivos al subirlo a GitHub Pages
 
 ---
 
